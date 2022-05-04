@@ -92,11 +92,3 @@ class RomanToInteger:
 
     def validateNumeral(self, char):
         return char.val in self.numerals.keys()
-
-    def lastNumeral(self, digit, count, currentChar):
-        if digit > 0 and count == 0:
-            digit -= currentChar
-        else:
-            digit += currentChar
-
-        return digit
