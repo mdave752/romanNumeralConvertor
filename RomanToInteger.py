@@ -1,4 +1,7 @@
 
+from IntegerToRoman import IntegerToRoman
+
+
 class Node:
     def __init__(self, val=None) -> None:
         self.val = val
@@ -44,19 +47,19 @@ class RomanToInteger:
                         if count >= 3:
                             raise ValueError("Not a valid roman numeral")
                         digit += currentChar
+                    else:
+                        count = 0
                     #  check if next character is smaller then curret character
-                    elif nextChar < currentChar:
+                    if nextChar < currentChar:
                         if digit > 0:
                             raise ValueError("Not a valid roman numeral")
                         if currentChar / 10 == nextChar or currentChar / 5 == nextChar:
                             digit -= nextChar + nextChar
                             digit += currentChar
-                        count = 0
 
                     # check if next character is bigger then current character It is the last numeral
-                    elif nextChar > currentChar:
+                    if nextChar > currentChar:
                         digit += currentChar
-                        count = 0
                         if not currentChar * 5 == nextChar:
                             total += digit
                             digit = 0

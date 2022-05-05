@@ -1,4 +1,5 @@
 import unittest
+from unittest import result
 
 from RomanToInteger import RomanToInteger
 from IntegerToRoman import IntegerToRoman
@@ -46,10 +47,10 @@ class Tests(unittest.TestCase):
             result = IntegerToRoman().convert(data)
 
     def test_convert_IntToString_to_RomToString(self):
-        data = 23
-        with self.assertRaises(TypeError):
-            result = IntegerToRoman.convert(RomanToInteger().convert(data))
-            self.assertEqual(result, 23)
+        for i in range(1, 4000):
+            toRoman = IntegerToRoman().convert(i)
+            result = RomanToInteger().convert(toRoman)
+            self.assertEqual(result, i)
 
 
 if __name__ == '__main__':
